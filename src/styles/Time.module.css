@@ -1,0 +1,40 @@
+.questionTime {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+}
+
+.questionTime h1 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  padding: 5px 7px;
+  gap: 5px;
+}
+.time p {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.time div {
+  font-size: 22px;
+  font-weight: 700;
+  padding: 3px 10px;
+  /* background-color: #c60d0d; */
+  /* background-color: #eff305; */
+  /* background-color: #46d80c; */
+  background-color: #3b3636;
+  border-radius: 5px;
+  /* color: #ffffff; */
+  /* color: #c60d0d; */
+  /* color: #eff305; */
+  color: #46d80c;
+}

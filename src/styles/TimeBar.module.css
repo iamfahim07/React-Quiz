@@ -1,0 +1,42 @@
+.timeBar {
+  background-color: #d9d9d9;
+  padding: 0;
+  margin: 0;
+  height: 4px;
+}
+
+.timeBar hr {
+  height: 4px;
+  border-radius: 5px;
+  animation-name: progress;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+    background-color: green;
+  }
+  33% {
+    width: 33%;
+    background-color: green;
+  }
+  34% {
+    width: 34%;
+    background-color: yellow;
+  }
+  66% {
+    width: 66%;
+    background-color: yellow;
+  }
+  67% {
+    width: 67%;
+    background-color: red;
+  }
+  100% {
+    width: 100%;
+    background-color: red;
+  }
+}

@@ -1,0 +1,33 @@
+.nextQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+  /* margin-top: 15px; */
+}
+
+.nextQuestion p {
+  font-size: 35px;
+  font-weight: normal;
+}
+
+.nextQuestion p span {
+  font-weight: bold;
+}
+
+.nextQuestion button {
+  border: none;
+  color: #9c8989;
+  background-color: #2f415b;
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 7px 15px;
+  transition: color 0.5s, background-color 0.5s;
+  cursor: pointer;
+}
+
+.nextQuestion button:hover {
+  color: #fffdfd;
+  background-color: #174a97;
+}
