@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.resultContainer {
+  display: grid;
+  grid-template-columns: auto;
+  width: 700px;
+  height: 550px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.headerText h1,
+.headerText p {
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: 50px;
+  text-align: center;
+}
+
+.headerText p {
+  font-size: 30px !important;
+}
+
+.score {
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+}
+
+.score p,
+.score h2 {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.score h2 {
+  font-size: 50px;
+}
+
+.score p {
+  font-weight: 400;
+}
+
+.message {
+  width: fit-content;
+  font-size: 40px;
+  margin: auto;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  gap: 2px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.buttons button {
+  border: none;
+  color: #9c8989;
+  background-color: #2f415b;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 7px 15px;
+  transition: color 0.5s, background-color 0.5s;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  color: #fffdfd;
+  background-color: #174a97;
+}

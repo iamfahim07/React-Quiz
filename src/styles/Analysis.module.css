@@ -1,0 +1,6 @@
+.analysis {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0px 50px;
+  padding: 20px;
+}

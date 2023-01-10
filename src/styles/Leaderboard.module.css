@@ -1,0 +1,82 @@
+.leaderboard {
+  width: 80vw;
+  height: fit-content;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+.leaderboard h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.table {
+  margin: auto;
+  width: 95%;
+  /* border-collapse: collapse; */
+}
+
+.table th {
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.table td {
+  font-size: 25px;
+  font-weight: 400;
+  padding: 15px;
+  text-align: center;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.table tr:hover,
+.table tr:active {
+  background-color: #e5e5e5;
+}
+
+.rank {
+  width: 15%;
+}
+
+.name {
+  width: 55%;
+}
+
+.time {
+  width: 15%;
+}
+
+.score {
+  width: 15%;
+}
+
+@media only screen and (max-width: 600px) {
+  .table tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .leaderboard {
+    padding: 10px;
+  }
+
+  .leaderboard h1 {
+    font-size: 5vw;
+  }
+
+  .table th {
+    font-size: 4vw;
+  }
+
+  .table td {
+    font-size: 3vw;
+  }
+}

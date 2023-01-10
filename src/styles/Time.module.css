@@ -38,3 +38,11 @@
   /* color: #eff305; */
   color: #46d80c;
 }
+
+.yellowSignal div {
+  color: #eff305 !important;
+}
+
+.redSignal div {
+  color: #c60d0d !important;
+}

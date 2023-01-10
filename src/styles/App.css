@@ -12,11 +12,3 @@
   color: var(--fontPrimary);
   font-family: "PT Sans", sans-serif;
 }
-
-.active {
-  width: 100% !important;
-  font-size: 36px !important;
-  font-weight: bold !important;
-  background-color: #94f794 !important;
-  box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.25) !important;
-}
