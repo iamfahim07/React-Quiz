@@ -1,5 +1,9 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useName } from "../context/NameProvider";
+import useLeaderboard from "../hooks/useLeaderboard";
 import classes from "../styles/NextQuestion.module.css";
+import Button from "./Button";
 
 export default function NextQuestion({
   currentQn,
@@ -10,11 +14,55 @@ export default function NextQuestion({
   score,
   answersList,
   isAnalysisEnd,
+  isHome,
+  duration,
 }) {
   const navigate = useNavigate();
 
+  const { nameDispenser } = useName();
+
+  const { leaderboard, getLeaderboardData, setLeaderboardData } =
+    useLeaderboard();
+
+  useEffect(() => {
+    getLeaderboardData();
+
+    if (nameDispenser === "") {
+      return navigate("/", { replace: true });
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   function nextPage() {
     if (isFinished) {
+      const quizInfo = {
+        name: nameDispenser,
+        time: qnLength * 30 - duration,
+        score: score,
+      };
+
+      const allQuizInfo = [...leaderboard, quizInfo];
+
+      for (let i = 0; i < allQuizInfo.length; i++) {
+        allQuizInfo.sort(function (a, b) {
+          if (b.score === a.score) {
+            if (a.time === b.time) {
+              return a.name < b.name ? -1 : 1;
+            }
+            return a.time - b.time;
+          }
+          return b.score - a.score;
+        });
+      }
+
+      if (allQuizInfo.length > 7) {
+        allQuizInfo.splice(7, 1);
+        setLeaderboardData(allQuizInfo);
+      } else {
+        setLeaderboardData(allQuizInfo);
+      }
+
       return navigate(
         "/result/",
         { state: { score, qnLength, answersList } },
@@ -22,7 +70,7 @@ export default function NextQuestion({
       );
     }
 
-    if (isAnalysisEnd) {
+    if (isHome) {
       return navigate("/", { replace: true });
     }
   }
@@ -33,9 +81,9 @@ export default function NextQuestion({
         <span>{currentQn}</span> of <span>{qnLength}</span> Questions
       </p>
       {show && (
-        <button onMouseDown={nextQuestion} onClick={nextPage}>
+        <Button nextQuestion={nextQuestion} nextPage={nextPage}>
           {isFinished || isAnalysisEnd ? "Finished" : "Next Question"}
-        </button>
+        </Button>
       )}
     </div>
   );

@@ -61,19 +61,43 @@
   align-items: flex-end;
 }
 
-.buttons button {
-  border: none;
-  color: #9c8989;
-  background-color: #2f415b;
-  font-size: 25px;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 7px 15px;
-  transition: color 0.5s, background-color 0.5s;
-  cursor: pointer;
-}
+@media only screen and (max-width: 600px) {
+  .resultContainer {
+    width: 350px;
+    height: 250px;
+    padding: 5px;
+  }
 
-.buttons button:hover {
-  color: #fffdfd;
-  background-color: #174a97;
+  .headerText h1,
+  .headerText p {
+    font-size: 26px;
+  }
+
+  .headerText p {
+    font-size: 16px !important;
+  }
+
+  .score p,
+  .score h2 {
+    font-size: 20px;
+  }
+
+  .score h2 {
+    font-size: 30px;
+  }
+
+  .message {
+    font-size: 20px;
+  }
+
+  .buttons {
+    gap: 1px;
+  }
+
+  .miniContainer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

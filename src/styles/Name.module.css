@@ -1,0 +1,64 @@
+.container {
+  width: 891px;
+  padding: 10px 30px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  display: block;
+  font-size: 30px;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e5e5e5;
+  resize: none;
+}
+
+.buttons {
+  padding: 10px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.buttons h3 {
+  color: red;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 350px;
+    padding: 5px 10px;
+    margin: 50% auto;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 2px;
+  }
+
+  input {
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  .buttons {
+    padding: 5px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0px;
+  }
+
+  .buttons h3 {
+    font-size: 16px;
+  }
+}

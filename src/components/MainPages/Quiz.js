@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
+import useQuestionsAndAnswers from "../../hooks/useQuestionsAndAnswers";
 import Container from "../Container";
 import NextQuestion from "../NextQuestion";
 import Question from "../Question";
@@ -16,9 +17,9 @@ const reducer = (state, action) => {
   }
 };
 
-export default function Quiz() {
-  const [index, setIndex] = useState(0);
-  const [time, setTime] = useState("");
+export default function Quiz({ index, setIndex, imgLoading }) {
+  const [time, setTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState();
   const [intervalId, setIntervalId] = useState(null);
   const [isFinished, setIsFinished] = useState(false);
@@ -32,96 +33,22 @@ export default function Quiz() {
   const [state03, dispatch03] = useReducer(reducer, false);
   const [state04, dispatch04] = useReducer(reducer, false);
 
+  const { loading, error, data } = useQuestionsAndAnswers();
+
   useEffect(() => {
-    setTime(15);
-    setProgress(true);
-    const interval = setInterval(() => {
-      setTime((prev) => prev - 1);
-    }, 1000);
+    setTime(30);
+    setProgress(!imgLoading ? true : false);
+    const interval = !imgLoading
+      ? setInterval(() => {
+          setTime((prev) => prev - 1);
+        }, 1000)
+      : "";
     setIntervalId(interval);
     setDisabled(false);
     setShow(false);
 
     return () => clearInterval(interval);
-  }, [index]);
-
-  const data = [
-    {
-      question: "1. Which teams have won the treble in club football?",
-      options: [
-        { option: "Celtic", correct: true },
-        { option: "Real Madrid" },
-        { option: "PSV", correct: true },
-        { option: "Liverpool" },
-      ],
-      mcq: true,
-    },
-    {
-      question: "2. who is the top goal scorer in the UCL?",
-      options: [
-        { option: "Lionel Messi" },
-        { option: "Cristiano Ronaldo", correct: true },
-        { option: "Karim Benzema" },
-        { option: "Robert Lewandowski" },
-      ],
-    },
-    {
-      question: "3. who is the top goal scorer in the International Football?",
-      options: [
-        { option: "Ali Daei" },
-        { option: "Lionel Messi" },
-        { option: "Cristiano Ronaldo", correct: true },
-        { option: "Neymar jr" },
-      ],
-    },
-    {
-      question: "4. How many Premier League does MAN UTD won?",
-      options: [
-        { option: "04" },
-        { option: "13", correct: true },
-        { option: "09" },
-        { option: "15" },
-      ],
-    },
-    {
-      question: "5. who is the Premier League winner in 2015-16?",
-      options: [
-        { option: "MAN UTD" },
-        { option: "Arsenal" },
-        { option: "Liverpool" },
-        { option: "Leicester City", correct: true },
-      ],
-    },
-    {
-      question: "6. Who has scored the most goals in a calendar year?",
-      options: [
-        { option: "Lionel Messi", correct: true },
-        { option: "Gerd Muller" },
-        { option: "Robert Lewandowski" },
-        { option: "Cristiano Ronaldo" },
-      ],
-    },
-    {
-      question: "7. Which player has won the most Ballons d'Or?",
-      options: [
-        { option: "Cristiano Ronaldo" },
-        { option: "Johan Cruyff" },
-        { option: "Lionel Messi", correct: true },
-        { option: "Marco van Basten" },
-      ],
-    },
-    {
-      question:
-        "8. Which Players has scored in every minute of a football match?",
-      options: [
-        { option: "Lionel Messi" },
-        { option: "Zlatan Ibrahimovic", correct: true },
-        { option: "Cristiano Ronaldo", correct: true },
-        { option: "Luis Suarez", correct: true },
-      ],
-      mcq: true,
-    },
-  ];
+  }, [index, imgLoading]);
 
   //Button onClick function
   function nextQuestion() {
@@ -129,6 +56,8 @@ export default function Quiz() {
       (obj) => obj.correct === true
     );
     checkAnswer(correctAnswers, userAnswers);
+
+    setDuration((prev) => prev + time);
 
     dispatch01("remove");
     dispatch02("remove");
@@ -177,6 +106,7 @@ export default function Quiz() {
     }
   }
 
+  //Selecting Answer
   function handleClick(e) {
     if (userAnswers.includes(e.target.innerText)) {
       const newAnswers = userAnswers.filter(
@@ -192,37 +122,50 @@ export default function Quiz() {
   const second = time < 10 ? `${0}${time}` : time;
 
   return (
-    <Container>
-      <Time time={second} />
-      <TimeBar progress={progress} />
-      <Question
-        qn={data[index].question}
-        op1={{ value: data[index].options[0].option }}
-        op2={{ value: data[index].options[1].option }}
-        op3={{ value: data[index].options[2].option }}
-        op4={{ value: data[index].options[3].option }}
-        mcq={data[index].mcq}
-        handleClick={handleClick}
-        state01={state01}
-        state02={state02}
-        state03={state03}
-        state04={state04}
-        dispatch01={dispatch01}
-        dispatch02={dispatch02}
-        dispatch03={dispatch03}
-        dispatch04={dispatch04}
-        disabled={disabled}
-      />
-      <hr />
-      <NextQuestion
-        currentQn={index + 1}
-        qnLength={data.length}
-        show={show}
-        nextQuestion={nextQuestion}
-        isFinished={isFinished}
-        score={score}
-        answersList={answersList}
-      />
-    </Container>
+    <>
+      {loading && <div>Loading...</div>}
+      {!loading && data.length === 0 && <div>No data found!</div>}
+      {error && <div>There was an error!</div>}
+
+      {!loading && data.length > 0 && (
+        <Container>
+          <Time time={second} />
+          <TimeBar progress={progress} />
+          <Question
+            qn={
+              !imgLoading
+                ? data[index].question
+                : "Await the culmination of the image's loading process"
+            }
+            op1={!imgLoading ? { value: data[index].options[0].option } : ""}
+            op2={!imgLoading ? { value: data[index].options[1].option } : ""}
+            op3={!imgLoading ? { value: data[index].options[2].option } : ""}
+            op4={!imgLoading ? { value: data[index].options[3].option } : ""}
+            mcq={!imgLoading ? data[index].mcq : ""}
+            handleClick={handleClick}
+            state01={state01}
+            state02={state02}
+            state03={state03}
+            state04={state04}
+            dispatch01={dispatch01}
+            dispatch02={dispatch02}
+            dispatch03={dispatch03}
+            dispatch04={dispatch04}
+            disabled={!imgLoading ? disabled : true}
+          />
+          <hr />
+          <NextQuestion
+            currentQn={index + 1}
+            qnLength={data.length}
+            show={show}
+            nextQuestion={nextQuestion}
+            isFinished={isFinished}
+            score={score}
+            answersList={answersList}
+            duration={duration}
+          />
+        </Container>
+      )}
+    </>
   );
 }

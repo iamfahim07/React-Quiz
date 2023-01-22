@@ -8,9 +8,20 @@
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
-.leaderboard h1 {
-  text-align: center;
+span {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 5px;
+}
+
+.header h1 span {
+  color: red;
 }
 
 .table {
@@ -59,7 +70,28 @@
   width: 15%;
 }
 
+.noDataAndError {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  font-size: 40px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
 @media only screen and (max-width: 600px) {
+  .leaderboard {
+    width: 95vw;
+  }
+
+  .header h1 {
+    font-size: 4.9vw;
+  }
+
+  .header h1 span {
+    font-size: 10px;
+  }
+
   .table tr:nth-child(even) {
     background-color: #dddddd;
   }
@@ -68,15 +100,11 @@
     padding: 10px;
   }
 
-  .leaderboard h1 {
-    font-size: 5vw;
-  }
-
   .table th {
-    font-size: 4vw;
+    font-size: 4.5vw;
   }
 
   .table td {
-    font-size: 3vw;
+    font-size: 4vw;
   }
 }

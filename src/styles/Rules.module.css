@@ -1,4 +1,6 @@
 .rulesContainer {
+  width: 70%;
+  margin: auto;
   border-radius: 5px;
   background-color: #fff;
 }
@@ -14,12 +16,13 @@
 
 .textContainer p {
   padding: 7px 35px;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 400;
   line-height: 80%;
 }
 
 .textContainer span {
+  font-size: 30px;
   font-weight: bold;
   color: red;
 }
@@ -38,19 +41,33 @@ hr {
   gap: 10px;
 }
 
-.buttons button {
-  border: none;
-  color: #9c8989;
-  background-color: #2f415b;
-  font-size: 25px;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 5px 10px;
-  transition: color 0.5s, background-color 0.5s;
-  cursor: pointer;
-}
+@media only screen and (max-width: 600px) {
+  .rulesContainer {
+    width: 95%;
+    margin-top: 5px;
+  }
 
-.buttons button:hover {
-  color: #fffdfd;
-  background-color: #174a97;
+  .rulesContainer h1 {
+    padding: 2px 10px;
+    font-size: 30px;
+  }
+
+  .textContainer {
+    padding: 5px 0px;
+  }
+
+  .textContainer p {
+    padding: 2px 10px;
+    font-size: 20px;
+    line-height: 100%;
+  }
+
+  .textContainer span {
+    font-size: 20px;
+  }
+
+  .buttons {
+    padding: 3px 5px;
+    gap: 5px;
+  }
 }

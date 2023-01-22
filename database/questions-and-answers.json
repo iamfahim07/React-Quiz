@@ -1,0 +1,191 @@
+{
+  "footballQuiz": [
+    {
+      "question": "1. Which teams have won the treble in club football?",
+      "options": [
+        { "option": "Celtic", "correct": true },
+        { "option": "Real Madrid" },
+        { "option": "PSV", "correct": true },
+        { "option": "Liverpool" }
+      ],
+      "mcq": true
+    },
+    {
+      "question": "2. who is the all-time top goal scorer in the UCL?",
+      "options": [
+        { "option": "Lionel Messi" },
+        { "option": "Cristiano Ronaldo", "correct": true },
+        { "option": "Karim Benzema" },
+        { "option": "Robert Lewandowski" }
+      ]
+    },
+    {
+      "question": "3. who is the all-time top goal scorer in the International Football?",
+      "options": [
+        { "option": "Ali Daei" },
+        { "option": "Lionel Messi" },
+        { "option": "Cristiano Ronaldo", "correct": true },
+        { "option": "Neymar jr" }
+      ]
+    },
+    {
+      "question": "4. How many Premier League titles has Manchester United won?",
+      "options": [
+        { "option": "18" },
+        { "option": "13", "correct": true },
+        { "option": "09" },
+        { "option": "15" }
+      ]
+    },
+    {
+      "question": "5. who is the Premier League winner in 2015-16?",
+      "options": [
+        { "option": "MAN UTD" },
+        { "option": "Arsenal" },
+        { "option": "Liverpool" },
+        { "option": "Leicester City", "correct": true }
+      ]
+    },
+    {
+      "question": "6. Who has scored the most goals in a calendar year?",
+      "options": [
+        { "option": "Lionel Messi", "correct": true },
+        { "option": "Gerd Muller" },
+        { "option": "Robert Lewandowski" },
+        { "option": "Cristiano Ronaldo" }
+      ]
+    },
+    {
+      "question": "7. Which player has won the most Ballon d'Or?",
+      "options": [
+        { "option": "Cristiano Ronaldo" },
+        { "option": "Johan Cruyff" },
+        { "option": "Lionel Messi", "correct": true },
+        { "option": "Marco van Basten" }
+      ]
+    },
+    {
+      "question": "8. Which players have scored in every minute of a football match?",
+      "options": [
+        { "option": "Lionel Messi" },
+        { "option": "Zlatan Ibrahimovic", "correct": true },
+        { "option": "Cristiano Ronaldo", "correct": true },
+        { "option": "Luis Suarez", "correct": true }
+      ],
+      "mcq": true
+    },
+    {
+      "question": "9. Which of these teams isn't from London?",
+      "options": [
+        { "option": "Fulham FC" },
+        { "option": "West Ham United FC" },
+        { "option": "Crystal Palace FC" },
+        { "option": "Aston Villa FC", "correct": true }
+      ]
+    },
+    {
+      "question": "10. Which team play at Anfield Stadium?",
+      "options": [
+        { "option": "Manchester United FC" },
+        { "option": "Liverpool FC", "correct": true },
+        { "option": "Manchester City FC" },
+        { "option": "Arsenal FC" }
+      ]
+    },
+    {
+      "question": "11. Which English Premier side are known as The Red Devils?",
+      "options": [
+        { "option": "Manchester United FC", "correct": true },
+        { "option": "Liverpool FC" },
+        { "option": "Manchester City FC" },
+        { "option": "Arsenal FC" }
+      ]
+    },
+    {
+      "question": "12. Which country is the first ever world cup winner?",
+      "options": [
+        { "option": "Uruguay", "correct": true },
+        { "option": "Argentina" },
+        { "option": "Brazil" },
+        { "option": "Chile" }
+      ]
+    },
+    {
+      "question": "13. Which Premier League team are famous for wearing black and white stripes?",
+      "options": [
+        { "option": "Tottenham Hotspur FC" },
+        { "option": "Fulham FC" },
+        { "option": "Newcastle United FC", "correct": true },
+        { "option": "Leeds United FC" }
+      ]
+    },
+    {
+      "question": "14. Which team are nicknamed The Canaries?",
+      "options": [
+        { "option": "Crystal Palace FC" },
+        { "option": "Fulham FC" },
+        { "option": "Brentford FC" },
+        { "option": "Norwich City FC", "correct": true }
+      ]
+    },
+    {
+      "question": "15. How many teams play in the FIFA World Cup?",
+      "options": [
+        { "option": "28" },
+        { "option": "32", "correct": true },
+        { "option": "36" },
+        { "option": "40" }
+      ]
+    },
+    {
+      "question": "16. Which italian club have Zlatan Ibrahimović played for?",
+      "options": [
+        { "option": "AC Milan", "correct": true },
+        { "option": "Napoli" },
+        { "option": "Inter Milan", "correct": true },
+        { "option": "Juventus", "correct": true }
+      ],
+      "mcq": true
+    },
+    {
+      "question": "17. Which of these teams is from London?",
+      "options": [
+        { "option": "Chelsea FC", "correct": true },
+        { "option": "Arsenal FC", "correct": true },
+        { "option": "Brentford FC", "correct": true },
+        { "option": "Tottenham Hotspur FC", "correct": true }
+      ],
+      "mcq": true
+    },
+    {
+      "question": "18. Which clubs from Wales play in England?",
+      "options": [
+        { "option": "Swansea City", "correct": true },
+        { "option": "Hull City" },
+        { "option": "Norwich City" },
+        { "option": "Cardiff City", "correct": true }
+      ],
+      "mcq": true
+    },
+    {
+      "question": "19. which of the spanish club have played UCL final but never won?",
+      "options": [
+        { "option": "Valencia", "correct": true },
+        { "option": "Atlético Madrid", "correct": true },
+        { "option": "Real Sociedad" },
+        { "option": "Sevilla" }
+      ],
+      "mcq": true
+    },
+    {
+      "question": "20. which of the italian club have played UCL final but never won?",
+      "options": [
+        { "option": "Sampdoria", "correct": true },
+        { "option": "Napoli" },
+        { "option": "A.S. Roma", "correct": true },
+        { "option": "Fiorentina", "correct": true }
+      ],
+      "mcq": true
+    }
+  ]
+}

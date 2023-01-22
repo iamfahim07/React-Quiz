@@ -36,3 +36,15 @@ hr {
   background-color: #d9d9d9;
   border: none;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 350px;
+    max-height: 520px;
+    margin-bottom: 10px;
+  }
+
+  .answerText {
+    font-size: 25px;
+  }
+}

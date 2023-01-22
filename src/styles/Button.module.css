@@ -1,0 +1,25 @@
+.button {
+  border: none;
+  color: #9c8989;
+  background-color: #2f415b;
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 7px 15px;
+  transition: color 0.5s, background-color 0.5s;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #fffdfd;
+  background-color: #174a97;
+}
+
+@media only screen and (max-width: 600px) {
+  .button {
+    color: #fffdfd;
+    background-color: #174a97;
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+}

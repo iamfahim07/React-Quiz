@@ -1,34 +1,50 @@
 .home {
   width: 100vw;
   height: 100vh;
-  background-image: url("../assets/stadium.jpg");
+  background-image: url("../assets/Old Trafford.jpg");
   background-size: cover;
 }
 
 .leaderBoard {
   width: 220px;
   height: 50px;
-  color: #ffffff;
-  background: #000000;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 30px;
-  cursor: pointer;
   position: relative;
   left: calc(100% - 230px);
   top: 10px;
 }
 
-.leaderBoard:hover {
+.leaderBoard a {
+  text-decoration: none;
+}
+
+.leaderBoard button,
+.startQuiz button {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  background: #000000;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.leaderBoard button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leaderBoard button:hover,
+.startQuiz button:hover {
   color: #000000;
   background: #ffffff;
 }
 
-.leaderBoard:active {
+.leaderBoard button:active,
+.startQuiz button:active {
   width: 218px;
   height: 49px;
   font-size: 29px;
@@ -38,13 +54,15 @@
 
 .introText {
   width: 1129px;
+  /* width: 80%; */
   height: 242px;
   font-style: normal;
   font-weight: 700;
   font-size: 100px;
   line-height: 121px;
   text-align: center;
-  margin: 210px auto 30px;
+  /* margin: 210px auto 30px; */
+  margin: 100px auto 0;
   color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -53,28 +71,47 @@
   width: 326px;
   height: 97px;
   margin: auto;
-  color: #ffffff;
-  background: #000000;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-style: normal;
-  font-weight: 700;
+}
+
+.startQuiz button {
   font-size: 50px;
-  border: none;
-  cursor: pointer;
 }
 
-.startQuiz:hover {
-  color: #000000;
-  background: #ffffff;
-}
-
-.startQuiz:active {
+.startQuiz button:active {
   width: 323px;
   height: 95px;
   font-size: 49px;
-  color: #101010;
-  background: #efe9e9;
+}
+
+@media only screen and (max-width: 600px) {
+  .leaderBoard {
+    width: 130px;
+    height: 30px;
+    position: relative;
+    left: calc(100% - 130px);
+    top: 10px;
+  }
+
+  .introText {
+    width: 90%;
+    font-size: 50px;
+    line-height: 60px;
+    margin: 110px auto 0px;
+  }
+
+  .startQuiz {
+    width: 156px;
+    height: 47px;
+  }
+
+  .leaderBoard button,
+  .startQuiz button {
+    color: #000000;
+    background: #ffffff;
+    font-size: 30px;
+  }
+
+  .leaderBoard button {
+    font-size: 20px;
+  }
 }

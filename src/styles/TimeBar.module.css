@@ -9,7 +9,7 @@
   height: 4px;
   border-radius: 5px;
   animation-name: progress;
-  animation-duration: 15s;
+  animation-duration: 30s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 }
@@ -38,5 +38,15 @@
   100% {
     width: 100%;
     background-color: red;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .timeBar {
+    height: 3px;
+  }
+
+  .timeBar hr {
+    height: 3px;
   }
 }
