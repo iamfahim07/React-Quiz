@@ -16,21 +16,18 @@ export default function NextQuestion({
   isAnalysisEnd,
   isHome,
   duration,
+  db,
 }) {
   const navigate = useNavigate();
 
   const { nameDispenser } = useName();
 
-  const { leaderboard, getLeaderboardData, setLeaderboardData } =
-    useLeaderboard();
+  const { leaderboard, setLeaderboardData } = useLeaderboard(db.lbPath);
 
   useEffect(() => {
-    getLeaderboardData();
-
     if (nameDispenser === "") {
       return navigate("/", { replace: true });
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -65,7 +62,7 @@ export default function NextQuestion({
 
       return navigate(
         "/result/",
-        { state: { score, qnLength, answersList } },
+        { state: { score, qnLength, answersList, db } },
         { replace: true }
       );
     }

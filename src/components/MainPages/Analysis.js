@@ -15,7 +15,7 @@ export default function Analysis() {
 
   const { state } = useLocation();
 
-  const { error, data } = useQuestionsAndAnswers();
+  const { error, data } = useQuestionsAndAnswers(state.db.quizPath);
 
   useEffect(() => {
     if (data.length > 0) {
@@ -116,6 +116,7 @@ export default function Analysis() {
               nextQuestion={nextQuestion}
               isAnalysisEnd={isAnalysisEnd}
               isHome={isHome}
+              db={state.db}
             />
           </Container>
         </div>

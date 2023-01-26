@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
+import { useLocation } from "react-router-dom";
 import useQuestionsAndAnswers from "../../hooks/useQuestionsAndAnswers";
 import Container from "../Container";
 import NextQuestion from "../NextQuestion";
@@ -17,7 +18,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function Quiz({ index, setIndex, imgLoading }) {
+export default function Quiz({ index, setIndex, imgLoading, setImageLink }) {
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState();
@@ -33,7 +34,13 @@ export default function Quiz({ index, setIndex, imgLoading }) {
   const [state03, dispatch03] = useReducer(reducer, false);
   const [state04, dispatch04] = useReducer(reducer, false);
 
-  const { loading, error, data } = useQuestionsAndAnswers();
+  const { state } = useLocation();
+  const { loading, error, data, img } = useQuestionsAndAnswers(state.quizPath);
+
+  useEffect(() => {
+    setImageLink(img);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [img]);
 
   useEffect(() => {
     setTime(30);
@@ -163,6 +170,7 @@ export default function Quiz({ index, setIndex, imgLoading }) {
             score={score}
             answersList={answersList}
             duration={duration}
+            db={state}
           />
         </Container>
       )}

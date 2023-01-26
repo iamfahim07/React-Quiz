@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import classes from "../../styles/Rules.module.css";
 import Button from "../Button";
 
 export default function Rules() {
+  const { state } = useLocation();
+
   return (
     <div className={classes.rulesContainer}>
       <h1>Some Rules</h1>
@@ -32,7 +34,7 @@ export default function Rules() {
         <Link to="/">
           <Button>Quit</Button>
         </Link>
-        <Link to="/name">
+        <Link to="/name" state={state}>
           <Button>Continue</Button>
         </Link>
       </div>

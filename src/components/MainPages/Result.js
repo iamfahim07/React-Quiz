@@ -4,7 +4,7 @@ import Button from "../Button";
 
 export default function Result() {
   const { state } = useLocation();
-  const { answersList, score, qnLength } = state;
+  const { answersList, score, qnLength, db } = state;
   const navigate = useNavigate();
 
   const getKeyword = () => {
@@ -65,7 +65,7 @@ export default function Result() {
             analysis={() =>
               navigate(
                 "/analysis",
-                { state: { answersList } },
+                { state: { answersList, db } },
                 { replace: true }
               )
             }
@@ -73,7 +73,7 @@ export default function Result() {
             Show Analysis
           </Button>
 
-          <Link to="/leader-board">
+          <Link to="/leader-board" state={db.lbPath}>
             <Button
               fontSize={
                 window.innerWidth > 600

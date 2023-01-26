@@ -1,16 +1,18 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useLeaderboard from "../hooks/useLeaderboard";
 import classes from "../styles/Leaderboard.module.css";
 import Button from "./Button";
 
 export default function Leaderboard() {
-  const { loading, error, leaderboard, getLeaderboardData } = useLeaderboard();
+  const { state } = useLocation();
+  const { loading, error, leaderboard } = useLeaderboard(state);
 
-  useEffect(() => {
-    getLeaderboardData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const topic =
+    state === "historyLeaderboard"
+      ? "History"
+      : state === "mythologyLeaderboard"
+      ? "Mythology"
+      : "Football";
 
   return (
     <>
@@ -36,7 +38,7 @@ export default function Leaderboard() {
         <div className={classes.leaderboard}>
           <div className={classes.header}>
             <h1>
-              Football Quiz Leaderboard <span>(Top 7)</span>
+              <span>{topic}</span> Quiz Leaderboard <span>(Top 7)</span>
             </h1>
             <Link to="/">
               <Button>Home</Button>

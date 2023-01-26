@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useName } from "../../context/NameProvider";
 import classes from "../../styles/Name.module.css";
 import Button from "../Button";
@@ -8,6 +8,8 @@ export default function Name() {
   const [name, setName] = useState("");
 
   const { nameContainer } = useName();
+
+  const { state } = useLocation();
 
   //   const handleChange = (e) => {
   //     let value = e.target.value;
@@ -45,7 +47,7 @@ export default function Name() {
 
       <div className={classes.buttons}>
         <h3>Name Required</h3>
-        <Link to={name.length > 0 ? "/quiz" : ""}>
+        <Link to={name.length > 0 ? "/quiz" : ""} state={state}>
           <Button handleClick={handleClick}>Continue</Button>
         </Link>
       </div>

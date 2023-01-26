@@ -1,4 +1,3 @@
-// import img from "../../assets/The-FIFA-World-Cup-Trophy.avif";
 import { useEffect, useRef } from "react";
 import classes from "../../styles/Image.module.css";
 
