@@ -124,7 +124,7 @@
           { "option": "Political corruption" },
           { "option": "Religious freedom" },
           { "option": "Economic oppression" },
-          { "option": "Taxation without representation", "correct": true }
+          { "option": "Unequal Taxation", "correct": true }
         ]
       },
       {

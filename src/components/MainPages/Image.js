@@ -13,7 +13,7 @@ export default function Image({ img, setImgLoading }) {
 
   return (
     <div className={classes.imageContainer}>
-      <img ref={imgRef} src={img} alt="World Cup" />
+      <img ref={imgRef} src={img} alt="Quiz" />
     </div>
   );
 }

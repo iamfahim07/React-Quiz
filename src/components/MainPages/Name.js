@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useName } from "../../context/NameProvider";
 import classes from "../../styles/Name.module.css";
@@ -10,6 +10,12 @@ export default function Name() {
   const { nameContainer } = useName();
 
   const { state } = useLocation();
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   //   const handleChange = (e) => {
   //     let value = e.target.value;
@@ -42,6 +48,7 @@ export default function Name() {
         type="text"
         placeholder="Name"
         value={name}
+        ref={inputRef}
         onChange={handleChange}
       />
 
