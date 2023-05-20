@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useName } from "../../context/NameProvider";
 import classes from "../../styles/Name.module.css";
 import Button from "../Button";
@@ -12,6 +12,8 @@ export default function Name() {
   const { state } = useLocation();
 
   const inputRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     inputRef.current.focus();
@@ -41,6 +43,13 @@ export default function Name() {
     return nameContainer(name);
   }
 
+  function handleKey(e) {
+    if (name.length > 0 && e.key === "Enter") {
+      handleClick();
+      navigate("/quiz", { state: state }, { replace: true });
+    }
+  }
+
   return (
     <div className={classes.container}>
       <h1>Enter your first name only</h1>
@@ -50,6 +59,7 @@ export default function Name() {
         value={name}
         ref={inputRef}
         onChange={handleChange}
+        onKeyDown={handleKey}
       />
 
       <div className={classes.buttons}>
